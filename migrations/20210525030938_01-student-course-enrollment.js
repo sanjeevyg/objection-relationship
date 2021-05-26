@@ -1,7 +1,7 @@
 exports.up = async knex => {
     await knex.schema.createTable("student", table => {
-        table.increments("id")
-        table.string("name")
+        // table.increments("id")
+        // table.string("name")
     })
     
     await knex.schema.createTable("course", table => {
