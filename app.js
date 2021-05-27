@@ -25,6 +25,16 @@ app.get("/students/:id", (request, response) => {
         })
 })
 
+app.post("/students", (request, response) => {
+    const student = request.body
+    database("students")
+        .insert(student)
+        .returning("*")
+        .then(student => {
+            response.json({ student })
+        })
+})
+
 
 
 
