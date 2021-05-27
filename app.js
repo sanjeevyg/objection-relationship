@@ -6,6 +6,7 @@ const knex = require('knex')
 const connection = require('knexfile.js')['development']
 const databse = knex(connection)
 const {Model} = require('objection')
+
 app.use(express.json())
 
 app.get("/students", (request, response) => {
@@ -15,6 +16,16 @@ app.get("/students", (request, response) => {
             response.json({ students })
         })
 })
+
+app.get("/students/:id", (request, response) => {
+    database("students")
+        .select().where({id: request.params.id}).first()
+        .then(student => {
+            response.json({ student })
+        })
+})
+
+
 
 
 
