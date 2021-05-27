@@ -8,3 +8,13 @@ const databse = knex(connection)
 
 app.use(express.json())
 
+app.get("/students", (request, response) => {
+    database("students")
+        .select()
+        .then(students => {
+            response.json({ students })
+        })
+})
+
+
+

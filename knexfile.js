@@ -6,5 +6,4 @@ module.exports = {
     client: 'pg',
     connection: 'postgress:///01-objection-and-relationships'
   }
-
 };
