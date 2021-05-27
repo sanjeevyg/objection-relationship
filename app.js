@@ -5,7 +5,7 @@ app.use(cors())
 const knex = require('knex')
 const connection = require('knexfile.js')['development']
 const databse = knex(connection)
-
+const {Model} = require('objection')
 app.use(express.json())
 
 app.get("/students", (request, response) => {
