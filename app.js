@@ -5,3 +5,6 @@ app.use(cors())
 const knex = require('knex')
 const connection = require('knexfile.js')['development']
 const databse = knex(connection)
+
+app.use(express.json())
+
