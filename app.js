@@ -45,6 +45,15 @@ app.patch("/students/:id", (request, response) => {
         })
 })
 
+app.delete("/students/:id", (request, response) => {
+    const id = request.params.id
+    database("students").where({id: request.params.id})
+        .delete()
+        .then(() => {
+            response.json({message: `student with id ${id} is deleted`  })
+        })
+})
+
 
 
 
