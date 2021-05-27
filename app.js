@@ -35,6 +35,16 @@ app.post("/students", (request, response) => {
         })
 })
 
+app.patch("/students/:id", (request, response) => {
+    const student = request.body
+    database("students").where({id: request.params.id})
+        .update(student)
+        .returning("*")
+        .then(student => {
+            response.json({ student })
+        })
+})
+
 
 
 
